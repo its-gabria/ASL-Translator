@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - Simple Navigation Example</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .nav-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .primary-btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            border-color: transparent;
+        }
+
+        .primary-btn:hover {
+            background: white;
+            color: #5a67d8;
+        }
+
+        .feature-list {
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .feature-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            margin: 10px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: #4ade80;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to My Website</h1>
+        <p>This is the homepage of our simple navigation example. Explore different sections using the buttons below.</p>
+        
+        <div class="feature-list">
+            <h3>What you'll find here:</h3>
+            <ul>
+                <li>Simple and clean design</li>
+                <li>Easy navigation between pages</li>
+                <li>Responsive layout</li>
+                <li>Modern styling effects</li>
+            </ul>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="#" class="nav-btn primary-btn" onclick="navigateToAbout()">
+                📖 About Us
+            </a>
+            <a href="#" class="nav-btn" onclick="navigateToContact()">
+                📞 Contact
+            </a>
+            <a href="#" class="nav-btn" onclick="navigateToServices()">
+                🛠️ Services
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function navigateToAbout() {
+            // In a real website, you would use: window.location.href = 'about.html';
+            // For this demo, we'll create the about page content dynamically
+            createAboutPage();
+        }
+
+        function navigateToContact() {
+            createContactPage();
+        }
+
+        function navigateToServices() {
+            createServicesPage();
+        }
+
+        function createAboutPage() {
+            document.body.innerHTML = `
+                <!DOCTYPE html>
+                <style>
+                    * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                    }
+
+                    body {
+                        font-family: 'Arial', sans-serif;
+                        background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+                        min-height: 100vh;
+                        color: white;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                    }
+
+                    .container {
+                        background: rgba(255, 255, 255, 0.1);
+                        backdrop-filter: blur(10px);
+                        padding: 50px;
+                        border-radius: 20px;
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                        max-width: 600px;
+                        margin: 20px;
+                        animation: slideIn 0.6s ease-out;
+                    }
+
+                    @keyframes slideIn {
+                        from {
+                            opacity: 0;
+                            transform: translateY(30px);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+
+                    h1 {
+                        font-size: 3rem;
+                        margin-bottom: 20px;
+                        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                    }
+
+                    p {
+                        font-size: 1.2rem;
+                        margin-bottom: 20px;
+                        line-height: 1.6;
+                        opacity: 0.9;
+                    }
+
+                    .back-btn {
+                        background: rgba(255, 255, 255, 0.9);
+                        color: #22c55e;
+                        border: none;
+                        padding: 15px 30px;
+                        border-radius: 50px;
+                        font-size: 18px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        margin-top: 30px;
+                    }
+
+                    .back-btn:hover {
+                        background: white;
+                        transform: translateY(-3px);
+                        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+                    }
+                </style>
+
+                <div class="container">
+                    <h1>📖 About Us</h1>
+                    <p>We are a simple example website demonstrating how to navigate between different pages. This about page tells you more about our mission and values.</p>
+                    <p>Our goal is to show how easy it is to create connected web pages with smooth transitions and modern design.</p>
+                    <p>Founded in 2024, we believe in keeping things simple yet elegant.</p>
+                    <button class="back-btn" onclick="location.reload()">🏠 Back to Home</button>
+                </div>
+            `;
+        }
+
+        function createContactPage() {
+            document.body.innerHTML = `
+                <style>
+                    * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                    }
+
+                    body {
+                        font-family: 'Arial', sans-serif;
+                        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+                        min-height: 100vh;
+                        color: white;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                    }
+
+                    .container {
+                        background: rgba(255, 255, 255, 0.1);
+                        backdrop-filter: blur(10px);
+                        padding: 50px;
+                        border-radius: 20px;
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                        max-width: 600px;
+                        margin: 20px;
+                        animation: slideIn 0.6s ease-out;
+                    }
+
+                    @keyframes slideIn {
+                        from {
+                            opacity: 0;
+                            transform: translateY(30px);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+
+                    h1 {
+                        font-size: 3rem;
+                        margin-bottom: 20px;
+                        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                    }
+
+                    .contact-info {
+                        text-align: left;
+                        margin: 30px 0;
+                    }
+
+                    .contact-info div {
+                        margin: 15px 0;
+                        padding: 10px;
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 10px;
+                        font-size: 1.1rem;
+                    }
+
+                    .back-btn {
+                        background: rgba(255, 255, 255, 0.9);
+                        color: #d97706;
+                        border: none;
+                        padding: 15px 30px;
+                        border-radius: 50px;
+                        font-size: 18px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        margin-top: 30px;
+                    }
+
+                    .back-btn:hover {
+                        background: white;
+                        transform: translateY(-3px);
+                        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+                    }
+                </style>
+
+                <div class="container">
+                    <h1>📞 Contact Us</h1>
+                    <p>Get in touch with us! We'd love to hear from you.</p>
+                    
+                    <div class="contact-info">
+                        <div>📧 Email: contact@example.com</div>
+                        <div>📱 Phone: (555) 123-4567</div>
+                        <div>📍 Address: 123 Web Street, Internet City, IC 12345</div>
+                        <div>🕐 Hours: Mon-Fri 9AM-5PM</div>
+                    </div>
+                    
+                    <button class="back-btn" onclick="location.reload()">🏠 Back to Home</button>
+                </div>
+            `;
+        }
+
+        function createServicesPage() {
+            document.body.innerHTML = `
+                <style>
+                    * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                    }
+
+                    body {
+                        font-family: 'Arial', sans-serif;
+                        background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+                        min-height: 100vh;
+                        color: white;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                    }
+
+                    .container {
+                        background: rgba(255, 255, 255, 0.1);
+                        backdrop-filter: blur(10px);
+                        padding: 50px;
+                        border-radius: 20px;
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                        max-width: 600px;
+                        margin: 20px;
+                        animation: slideIn 0.6s ease-out;
+                    }
+
+                    @keyframes slideIn {
+                        from {
+                            opacity: 0;
+                            transform: translateY(30px);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+
+                    h1 {
+                        font-size: 3rem;
+                        margin-bottom: 20px;
+                        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                    }
+
+                    .services-list {
+                        text-align: left;
+                        margin: 30px 0;
+                    }
+
+                    .service-item {
+                        margin: 15px 0;
+                        padding: 15px;
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 10px;
+                        border-left: 4px solid #a855f7;
+                    }
+
+                    .service-item h3 {
+                        margin-bottom: 8px;
+                        color: #e879f9;
+                    }
+
+                    .back-btn {
+                        background: rgba(255, 255, 255, 0.9);
+                        color: #7c3aed;
+                        border: none;
+                        padding: 15px 30px;
+                        border-radius: 50px;
+                        font-size: 18px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        margin-top: 30px;
+                    }
+
+                    .back-btn:hover {
+                        background: white;
+                        transform: translateY(-3px);
+                        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+                    }
+                </style>
+
+                <div class="container">
+                    <h1>🛠️ Our Services</h1>
+                    <p>We offer a variety of services to meet your needs.</p>
+                    
+                    <div class="services-list">
+                        <div class="service-item">
+                            <h3>Web Design</h3>
+                            <p>Custom website design and development</p>
+                        </div>
+                        <div class="service-item">
+                            <h3>Mobile Apps</h3>
+                            <p>iOS and Android application development</p>
+                        </div>
+                        <div class="service-item">
+                            <h3>Consulting</h3>
+                            <p>Technical consulting and project planning</p>
+                        </div>
+                        <div class="service-item">
+                            <h3>Support</h3>
+                            <p>Ongoing maintenance and support services</p>
+                        </div>
+                    </div>
+                    
+                    <button class="back-btn" onclick="location.reload()">🏠 Back to Home</button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
